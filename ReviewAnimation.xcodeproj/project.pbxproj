@@ -23,6 +23,7 @@
 		18921C50186D699600C97E80 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18921C2C186D699600C97E80 /* UIKit.framework */; };
 		18921C58186D699600C97E80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18921C56186D699600C97E80 /* InfoPlist.strings */; };
 		18921C5A186D699600C97E80 /* ReviewAnimationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18921C59186D699600C97E80 /* ReviewAnimationTests.m */; };
+		18921C64186D6C0E00C97E80 /* yinzhang.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18921C63186D6C0E00C97E80 /* yinzhang.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		18921C55186D699600C97E80 /* ReviewAnimationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReviewAnimationTests-Info.plist"; sourceTree = "<group>"; };
 		18921C57186D699600C97E80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		18921C59186D699600C97E80 /* ReviewAnimationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReviewAnimationTests.m; sourceTree = "<group>"; };
+		18921C63186D6C0E00C97E80 /* yinzhang.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = yinzhang.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				18921C40186D699600C97E80 /* ModelController.h */,
 				18921C41186D699600C97E80 /* ModelController.m */,
 				18921C43186D699600C97E80 /* Main.storyboard */,
+				18921C63186D6C0E00C97E80 /* yinzhang.gif */,
 				18921C46186D699600C97E80 /* Images.xcassets */,
 				18921C2F186D699600C97E80 /* Supporting Files */,
 			);
@@ -238,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18921C64186D6C0E00C97E80 /* yinzhang.gif in Resources */,
 				18921C47186D699600C97E80 /* Images.xcassets in Resources */,
 				18921C33186D699600C97E80 /* InfoPlist.strings in Resources */,
 				18921C45186D699600C97E80 /* Main.storyboard in Resources */,

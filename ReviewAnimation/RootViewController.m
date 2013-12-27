@@ -20,6 +20,19 @@
 
 @synthesize modelController = _modelController;
 
+- (IBAction)gotoNext:(id)sender {
+    //get current index of current page
+    NSUInteger currentPage = [self.modelController indexOfViewController:[self.pageViewController.viewControllers objectAtIndex:0]];
+    // this is the next page nil mean we have reach the end
+    DataViewController *targetPageViewController = [self.modelController viewControllerAtIndex:(currentPage + 1) storyboard:self.storyboard];
+    if (targetPageViewController) {
+        //put it(or them if in landscape view) in an array
+        NSArray *viewControllers = [NSArray arrayWithObjects:targetPageViewController, nil];
+        //add page view
+        [self.pageViewController setViewControllers:viewControllers  direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

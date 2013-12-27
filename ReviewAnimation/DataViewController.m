@@ -32,4 +32,8 @@
     self.dataLabel.text = [self.dataObject description];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    
+}
+
 @end
