@@ -12,4 +12,6 @@
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+
 @end

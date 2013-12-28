@@ -14,6 +14,9 @@
 
 @interface RootViewController ()
 @property (readonly, strong, nonatomic) ModelController *modelController;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
+@property (weak, nonatomic) IBOutlet UIImageView *yinzhang;
+
 @end
 
 @implementation RootViewController
@@ -48,7 +51,12 @@
     self.pageViewController.dataSource = self.modelController;
 
     [self addChildViewController:self.pageViewController];
-    [self.view addSubview:self.pageViewController.view];
+//    [self.contentView addSubview:self.pageViewController.view];
+//    [self.view insertSubview:self.pageViewController.view belowSubview:self.contentView];
+    CGRect rect = self.pageViewController.view.frame;
+    rect.size.height -= 44;
+    self.pageViewController.view.frame = rect;
+    [self.view insertSubview:self.pageViewController.view belowSubview:self.toolBar];
 
     // Set the page view controller's bounds using an inset rect so that self's view is visible around the edges of the pages.
     CGRect pageViewRect = self.view.bounds;
@@ -57,7 +65,7 @@
     [self.pageViewController didMoveToParentViewController:self];
 
     // Add the page view controller's gesture recognizers to the book view controller's view so that the gestures are started more easily.
-    self.view.gestureRecognizers = self.pageViewController.gestureRecognizers;
+//    self.view.gestureRecognizers = self.pageViewController.gestureRecognizers;
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,6 +102,49 @@
 
     self.pageViewController.doubleSided = NO;
     return UIPageViewControllerSpineLocationMin;
+}
+
+- (IBAction)nextOne:(id)sender {
+    [self animateYinzhang];
+//    [self gotoNext:nil];
+}
+
+- (void)animateYinzhang {
+
+    [UIView animateWithDuration:0.8 delay:0 usingSpringWithDamping:900 initialSpringVelocity:50 options:UIViewAnimationOptionLayoutSubviews animations:^{
+        self.yinzhang.alpha = 1.0;
+        self.yinzhang.transform = CGAffineTransformMakeScale(0.8, 0.8);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.8 animations:^{
+            self.yinzhang.alpha = 0.0;
+
+        } completion:^(BOOL finished) {
+//            self.yinzhang.transform = []
+            self.yinzhang.transform = CGAffineTransformIdentity;
+        }];
+//        [UIView animateWithDuration:0.5 animations:^{
+//            //                [self gotoNext:nil];
+//        }];
+        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:44 initialSpringVelocity:4 options:UIViewAnimationOptionAllowAnimatedContent animations:^{
+            CGRect rect = self.toolBar.frame;
+            rect.origin.y += 44;
+            self.toolBar.frame = rect;
+
+        } completion:^(BOOL finished) {
+            [self gotoNext:nil];
+            [UIView animateWithDuration:0.5 delay:0.5 usingSpringWithDamping:44 initialSpringVelocity:4 options:UIViewAnimationOptionAllowAnimatedContent animations:^{
+                CGRect rect = self.toolBar.frame;
+                rect.origin.y -= 44;
+                self.toolBar.frame = rect;
+                
+            } completion:nil];
+
+        }];
+    }];
+//    self.yinzhang.alpha = 1.0;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
 }
 
 @end
